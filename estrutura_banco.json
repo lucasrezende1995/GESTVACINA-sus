@@ -1,62 +1,62 @@
 {
     "patients": {
-        "_id": "ObjectId",
-        "nome": "String",
-        "data_nascimento": "Date",
-        "cpf": "String",
-        "cartao_sus": "String",
-        "genero": "String",
+        "_id": "65b8f9e4d1a27c1234567890",
+        "nome": "Lucas Paes de Rezende",
+        "data_nascimento": "1999-05-15",
+        "cpf": "123.456.789-00",
+        "cartao_sus": "987654321000",
+        "genero": "Masculino",
         "endereco": {
-            "rua": "String",
-            "numero": "Number",
-            "cidade": "String",
-            "estado": "String",
-            "cep": "String"
+            "rua": "Av. João Naves de Ávila",
+            "numero": "123",
+            "cidade": "Uberlândia",
+            "estado": "MG",
+            "cep": "38400-000"
         },
         "contato": {
-            "telefone": "String",
-            "email": "String"
+            "telefone": "(34) 98765-4321",
+            "email": "lucas@email.com"
         },
         "comorbidades": [
-            "String"
+            "Não"
         ],
         "alergias_vacinas": [
-            "String"
+            "Não"
         ],
         "historico_vacinal": [
             {
-                "vacina_id": "ObjectId",
-                "data_aplicacao": "Date",
-                "dose": "String",
-                "local": "String",
-                "profissional": "String"
+                "vacina_id": "659a123bde4f56789abc0123",
+                "data_aplicacao": "2021-10-02",
+                "dose": "1ª dose",
+                "local": "UBS Centro",
+                "profissional": "Dr. José Silva"
             }
         ]
     },
     "vaccines": {
-        "_id": "ObjectId",
-        "nome": "String",
-        "fabricante": "String",
-        "doses": "Number",
-        "intervalo_dias": "Number",
-        "lote": "String",
-        "validade": "Date"
+        "_id": "659a123bde4f56789abc0123",
+        "nome": "COVID-19 (Pfizer)",
+        "fabricante": "Pfizer",
+        "doses": 2,
+        "intervalo_dias": 21,
+        "lote": "ABC12345",
+        "validade": "2025-04-05"
     },
     "appointments": {
-        "_id": "ObjectId",
-        "paciente_id": "ObjectId",
-        "vacina_id": "ObjectId",
-        "data_agendamento": "Date",
-        "dose": "String",
-        "local": "String",
-        "status": "String"
+        "_id": "660bcd123e4f56789abc4567",
+        "paciente_id": "65b8f9e4d1a27c1234567890",
+        "vacina_id": "659a123bde4f56789abc0123",
+        "data_agendamento": "2025-03-04",
+        "dose": "2ª dose",
+        "local": "UBS Centro",
+        "status": "Pendente"
     },
     "reports": {
-        "_id": "ObjectId",
-        "regiao": "String",
-        "vacina": "String",
-        "doses_aplicadas": "Number",
-        "doses_pendentes": "Number",
-        "data_atualizacao": "Date"
+        "_id": "660cde123f4f56789abc6789",
+        "regiao": "Uberlândia - MG",
+        "vacina": "COVID-19 (Pfizer)",
+        "doses_aplicadas": 12000,
+        "doses_pendentes": 4000,
+        "data_atualizacao": "2025-06-06"
     }
 }
