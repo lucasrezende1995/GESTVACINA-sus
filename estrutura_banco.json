@@ -1,0 +1,62 @@
+{
+    "patients": {
+        "_id": "ObjectId",
+        "nome": "String",
+        "data_nascimento": "Date",
+        "cpf": "String",
+        "cartao_sus": "String",
+        "genero": "String",
+        "endereco": {
+            "rua": "String",
+            "numero": "Number",
+            "cidade": "String",
+            "estado": "String",
+            "cep": "String"
+        },
+        "contato": {
+            "telefone": "String",
+            "email": "String"
+        },
+        "comorbidades": [
+            "String"
+        ],
+        "alergias_vacinas": [
+            "String"
+        ],
+        "historico_vacinal": [
+            {
+                "vacina_id": "ObjectId",
+                "data_aplicacao": "Date",
+                "dose": "String",
+                "local": "String",
+                "profissional": "String"
+            }
+        ]
+    },
+    "vaccines": {
+        "_id": "ObjectId",
+        "nome": "String",
+        "fabricante": "String",
+        "doses": "Number",
+        "intervalo_dias": "Number",
+        "lote": "String",
+        "validade": "Date"
+    },
+    "appointments": {
+        "_id": "ObjectId",
+        "paciente_id": "ObjectId",
+        "vacina_id": "ObjectId",
+        "data_agendamento": "Date",
+        "dose": "String",
+        "local": "String",
+        "status": "String"
+    },
+    "reports": {
+        "_id": "ObjectId",
+        "regiao": "String",
+        "vacina": "String",
+        "doses_aplicadas": "Number",
+        "doses_pendentes": "Number",
+        "data_atualizacao": "Date"
+    }
+}
