@@ -61,14 +61,15 @@
     }
 }
 
+27-2-2025
 
 from pymongo import MongoClient
 from datetime import datetime
 from bson.objectid import ObjectId
 
-# Conectar ao MongoDB (substitua pela sua string de conexão)
+# Conectar ao MongoDB
 client = MongoClient("mongodb://localhost:27017/")  
-db = client["meu_banco_de_dados"]  # Nome do banco de dados
+db = client["meu_banco_de_dados"] 
 
 # Criar coleções
 patients_collection = db["patients"]
