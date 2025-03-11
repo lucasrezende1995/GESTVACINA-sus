@@ -3,7 +3,7 @@ from datetime import datetime
 from bson.objectid import ObjectId
 
 # Conectar ao MongoDB (substitua pela sua string de conexão)
-client = MongoClient("mongodb+srv://<db_Lucas>:<db_lucasrezende_4995>@cluster0.9w1tu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")  
+client = MongoClient("mongodb+srv://<db_Lucas>:<db_lucas_rezende4995>@cluster0.9w1tu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")  
 db = client["meu_banco_de_dados"]  # Nome do banco de dados
 
 # Criar coleções
