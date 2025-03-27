@@ -2,7 +2,7 @@ import redis
 import json
 
 # Conectar ao Redis
-r = redis.Redis(host='r = redis.Redis(host='meu-redis.cloud', port=12345, password='minha_senha')', port=6379, db=0, decode_responses=True)
+r = redis.Redis(host='meu-redis.cloud', port=12345, password='minha_senha')', port=6379, db=0, decode_responses=True)
 
 # Dados do paciente (adaptado para Redis)
 patient_key = "patient:65b8f9e4d1a27c1234567890"
