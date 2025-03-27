@@ -67,10 +67,12 @@ r.hset(appointment_key, mapping=appointment_data)
 
 print("Dados armazenados no Redis com sucesso!")
 
-criar um hash
+# Salvar um paciente como JSON (string)
+SET patient:65b8f9e4d1a27c1234567890 '{"nome": "Lucas Paes de Rezende", "cpf": "123.456.789-00"}'
 
-r.hset(patient_key, mapping=patient_data)
+# Recuperar os dados
+GET patient:65b8f9e4d1a27c1234567890
 
-criar chave patient
+Saída esperada
 
-HSET patient:65b8f9e4d1a27c1234567890 nome "Lucas Paes de Rezende"
+{"nome": "Lucas Paes de Rezende", "cpf": "123.456.789-00"}
