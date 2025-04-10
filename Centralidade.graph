@@ -1,0 +1,46 @@
+
+
+// 1. Cria unidades de saúde com coordenadas
+CREATE
+  (u1:UnidadeSaude {id: 'U001', nome: 'UBS Centro', coordenadas: point({latitude: -18.91, longitude: -48.27})}),
+  (u2:UnidadeSaude {id: 'U002', nome: 'UBS Santa Luzia', coordenadas: point({latitude: -18.92, longitude: -48.28})}),
+  (u3:UnidadeSaude {id: 'U003', nome: 'UBS Tibery', coordenadas: point({latitude: -18.89, longitude: -48.25})});
+
+// 2. Cria pacientes e vacinação
+CREATE
+  (p1:Paciente {id: 'P001', nome: 'Maria', coordenadas: point({latitude: -18.91, longitude: -48.271})}),
+  (p2:Paciente {id: 'P002', nome: 'João', coordenadas: point({latitude: -18.92, longitude: -48.275})}),
+  (v1:Vacina {id: 'V001', nome: 'COVID-19', fabricante: 'Pfizer'}),
+  (p1)-[:RECEBEU]->(v1),
+  (p1)-[:VACINADO_EM]->(u1),
+  (p2)-[:RECEBEU]->(v1),
+  (p2)-[:VACINADO_EM]->(u2);
+
+// 3. Define distâncias geográficas entre unidades
+MATCH
+  (u1:UnidadeSaude {id: 'U001'}),
+  (u2:UnidadeSaude {id: 'U002'}),
+  (u3:UnidadeSaude {id: 'U003'})
+CREATE
+  (u1)-[:PROXIMO_DE {distancia_km: 2.5}]->(u2),
+  (u2)-[:PROXIMO_DE {distancia_km: 3.0}]->(u3),
+  (u3)-[:PROXIMO_DE {distancia_km: 2.0}]->(u1);
+
+// 4. Cria projeção do grafo GDS
+CALL gds.graph.project(
+  'grafoVacinasSUS',
+  ['UnidadeSaude'],
+  {
+    PROXIMO_DE: {
+      type: 'PROXIMO_DE',
+      orientation: 'UNDIRECTED',
+      properties: 'distancia_km'
+    }
+  }
+);
+
+// 5. Calcula centralidade de proximidade (closeness)
+CALL gds.beta.closeness.stream('grafoVacinasSUS')
+YIELD nodeId, score
+RETURN gds.util.asNode(nodeId).nome AS unidade, score
+ORDER BY score DESC;
